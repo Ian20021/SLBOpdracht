@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="mp3.html">Podcast</a></li>
+            <li><a href="OverMij.html">Over mij</a></li>
+            <li><a href="Sportkunde.html">Sportkunde</a></li>
+            <li><a href="Toekomst.html">Toekomst</a></li>
+            <li><a href="Bedankjes.html">Bedankjes</a></li>
+        </ul>
+    </nav>
+    <div id="content">
+        <h1>MP3 Page</h1>
+        <audio id="audioPlayer" controls>
+            <source src="Audio/Podcast.m4a" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <br><br>
+            <a href="Audio/Podcast.m4a" id="downloadLink" download="Podcast.m4a">Download MP3</a>
+        <br><br>
+        <!-- <script>
+            document.getElementById('downloadLink').addEventListener('click', async function(event) {
+                event.preventDefault();
+                try {
+                    const response = await fetch('Audio/Podcast.m4a');
+                    if (!response.ok) {
+                        throw new Error(`Network response was not ok: ${response.statusText}`);
+                    }
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    a.download = 'Podcast.m4a';
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                    document.body.removeChild(a);
+                } catch (error) {
+                    console.error('Could not download the file:', error);
+                    alert('Could not download the file: ' + error.message);
+                }
+            });
+        </script> -->
+  
+
+        <h2>Important Times</h2>
+        
+            <a href="#" onclick="skipTo(0)">00:00</a> - Rond klooien
+            <br>
+            <a href="#" onclick="skipTo(90)">01:30</a> - Wie zijn wij
+            <br>
+            <a href="#" onclick="skipTo(1418)">23:38</a> - Onze waardes
+            <br>
+            <a href="#" onclick="skipTo(1909)">31:49</a> - Over de opleiding
+            <br>
+            <a href="#" onclick="skipTo(2387)">39:47</a> - Onze toekomst
+        
+    </div>
+    <script>
+        function skipTo(seconds) {
+            var audioPlayer = document.getElementById('audioPlayer');
+            audioPlayer.currentTime = seconds;
+            audioPlayer.play();
+        }
+    </script>
+</body>
+</html>
